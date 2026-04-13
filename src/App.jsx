@@ -238,6 +238,33 @@ const revolutionCardsMore = [
   }
 ];
 
+const practiceCards = [
+  {
+    number: '01',
+    title: 'Độc lập dân tộc hôm nay gắn với chủ quyền, bản sắc và tinh thần tự chủ',
+    text:
+      'Trong thời đại toàn cầu hóa, độc lập dân tộc không chỉ là bảo vệ biên giới, lãnh thổ mà còn là giữ vững chủ quyền quốc gia, bản sắc văn hóa và tinh thần tự chủ của dân tộc. Điều đó đòi hỏi mỗi người Việt Nam phải biết trân trọng lợi ích chung của đất nước, tỉnh táo trước những thông tin sai lệch và không để các tác động bên ngoài làm suy giảm ý thức dân tộc.'
+  },
+  {
+    number: '02',
+    title: 'Tinh thần đoàn kết dân tộc vẫn được thể hiện rõ trong đời sống thực tế',
+    text:
+      'Trong cuộc sống hiện nay, trên mạng xã hội có lúc con người tranh cãi, bất đồng, thậm chí công kích nhau. Tuy nhiên, khi đất nước gặp khó khăn, thiên tai, dịch bệnh hoặc những vấn đề liên quan đến lợi ích dân tộc, tinh thần đoàn kết của người Việt vẫn được khơi dậy mạnh mẽ. Điều đó cho thấy tư tưởng Hồ Chí Minh về độc lập dân tộc gắn liền với đại đoàn kết vẫn còn nguyên giá trị thực tiễn trong xã hội hôm nay.'
+  },
+  {
+    number: '03',
+    title: 'Độc lập dân tộc phải gắn với đời sống của nhân dân trong bối cảnh mới',
+    text:
+      'Hồ Chí Minh luôn khẳng định độc lập phải gắn với tự do, hạnh phúc của nhân dân. Ngày nay, tư tưởng ấy vẫn có ý nghĩa rất rõ: phát triển đất nước phải hướng tới nâng cao đời sống nhân dân, mở rộng cơ hội học tập, việc làm và bảo đảm an sinh xã hội. Như vậy, độc lập dân tộc không chỉ là khái niệm chính trị, mà còn phải được thể hiện bằng chất lượng cuộc sống thực tế của con người.'
+  },
+  {
+    number: '04',
+    title: 'Trách nhiệm của sinh viên hôm nay',
+    text:
+      'Đối với sinh viên, vận dụng tư tưởng Hồ Chí Minh không chỉ là học thuộc lý luận mà còn là sống có trách nhiệm với cộng đồng và đất nước. Điều đó thể hiện ở việc học tập nghiêm túc, rèn luyện bản thân, sử dụng mạng xã hội một cách văn minh, không lan truyền thông tin sai lệch, biết đặt lợi ích chung của dân tộc lên trên những tranh cãi nhỏ hẹp và sẵn sàng đóng góp cho xã hội bằng năng lực của mình.'
+  }
+];
+
 const quoteGallery = [
   {
     image:
@@ -773,6 +800,37 @@ function App() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-practice section-light" id="phan-bay">
+        <div className="container">
+          <div className="section-heading reveal">
+            <span className="section-label">Phần VII</span>
+            <h2>Liên hệ thực tiễn hiện nay</h2>
+            <p>
+              Tư tưởng Hồ Chí Minh về độc lập dân tộc và cách mạng giải phóng dân tộc không chỉ có giá
+              trị trong lịch sử, mà vẫn còn ý nghĩa sâu sắc đối với đời sống Việt Nam hôm nay.
+            </p>
+          </div>
+
+          <div className="practice-grid stagger-up">
+            {practiceCards.map((card) => (
+              <article key={card.number} className="practice-card reveal-child">
+                <div className="practice-top">
+                  <span className="practice-index">{card.number}</span>
+                  <h3>{card.title}</h3>
+                </div>
+                <p>{card.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="practice-summary reveal">
+            Có thể nói, trong thời đại hôm nay, tư tưởng Hồ Chí Minh vẫn nhắc mỗi người Việt Nam phải giữ
+            vững tinh thần độc lập, phát huy đoàn kết dân tộc và sống có trách nhiệm để góp phần xây dựng
+            đất nước.
           </div>
         </div>
       </section>
