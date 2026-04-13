@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import anh2 from './assets/anh2.png';
 import anh3 from './assets/anh3.png';
 
 const navItems = [
-  { href: '#gioi-thieu', label: 'Giới thiệu' },
+  { href: '#phan-mot', label: 'Giới thiệu' },
   { href: '#phan-mot', label: 'Chủ đề' }
 ];
 
@@ -13,6 +13,9 @@ const independenceCards = [
     title: 'Độc lập, tự do là quyền thiêng liêng, bất khả xâm phạm của mọi dân tộc',
     content:
       'Theo Hồ Chí Minh, độc lập dân tộc không phải là điều xin được, cho được, mà là quyền thiêng liêng của mọi dân tộc. Dân tộc nào cũng có quyền sống, quyền sung sướng và quyền tự do.',
+    image:
+      'https://mediagiaothong.tapchixaydung.vn/mediav2/upload/giaothong/tapchigiaothong.qltns.mediacdn.vn/tapchigiaothong.vn/files/Thuy.duong/2020/05/14/ban-yeu-sach-1436.jpg',
+    imageAlt: 'Quảng trường Ba Đình trong ngày Tuyên ngôn Độc lập năm 1945',
     evidence: [
       'Năm 1919, Nguyễn Ái Quốc gửi Bản yêu sách của nhân dân An Nam tới Hội nghị Vécxây, đòi quyền tự do, dân chủ và bình đẳng cho nhân dân Đông Dương.',
       'Trong Tuyên ngôn Độc lập năm 1945, Hồ Chí Minh khẳng định: “Tất cả các dân tộc trên thế giới đều sinh ra bình đẳng; dân tộc nào cũng có quyền sống, quyền sung sướng và quyền tự do.”'
@@ -23,6 +26,9 @@ const independenceCards = [
     title: 'Độc lập dân tộc phải gắn với tự do, hạnh phúc của nhân dân',
     content:
       'Hồ Chí Minh không chấp nhận một nền độc lập chỉ có trên danh nghĩa. Theo Người, độc lập phải đi liền với tự do và hạnh phúc của nhân dân.',
+    image:
+      'data:image/jpeg;base64,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',
+    imageAlt: 'Hồ Chí Minh với thiếu nhi trong ảnh tư liệu',
     evidence: [
       'Câu nói rất nổi tiếng của Hồ Chí Minh: “Nước độc lập mà dân không hưởng hạnh phúc tự do, thì độc lập cũng chẳng có nghĩa lý gì.”',
       'Sau Cách mạng Tháng Tám, Người nêu rất rõ 4 việc cấp thiết: làm cho dân có ăn, có mặc, có chỗ ở, có học hành.'
@@ -33,6 +39,9 @@ const independenceCards = [
     title: 'Độc lập dân tộc phải là độc lập thật sự, hoàn toàn, triệt để',
     content:
       'Hồ Chí Minh phản đối kiểu “độc lập giả hiệu” do thực dân dựng lên. Người yêu cầu độc lập phải là độc lập thật sự, tức là dân tộc phải có quyền tự quyết hoàn toàn.',
+    image:
+      'https://image.plo.vn/w850/Uploaded/2026/cqjwqcdwp/2015_05_19/4-chot_WVJP.jpg.webp',
+    imageAlt: 'Biểu tượng chủ quyền và quyền tự quyết dân tộc',
     bullets: [
       'Không tự quyết được ngoại giao',
       'Không có quân đội riêng',
@@ -44,6 +53,9 @@ const independenceCards = [
     title: 'Độc lập dân tộc gắn liền với thống nhất và toàn vẹn lãnh thổ',
     content:
       'Theo Hồ Chí Minh, độc lập dân tộc không thể tách rời thống nhất đất nước và toàn vẹn lãnh thổ.',
+    image:
+      'https://preview.redd.it/h%E1%BB%93-ch%C3%AD-minh-l%C3%A0-t%C3%A1c-nh%C3%A2n-ch%C3%ADnh-khi%E1%BA%BFn-ph%C3%A1p-bu%E1%BB%99c-ph%E1%BA%A3i-%C4%91%E1%BB%95-b%E1%BB%99-v0-hmafvadb996d1.jpg?width=350&format=pjpg&auto=webp&s=97925c2cd7612aabfd3a76b87edd5c5a53be9b34',
+    imageAlt: 'Hình ảnh biểu tượng cho độc lập, thống nhất và toàn vẹn lãnh thổ',
     evidence: [
       'Hồ Chí Minh khẳng định: “Nước Việt Nam là một, dân tộc Việt Nam là một.”',
       'Trong thư gửi đồng bào Nam Bộ trước khi sang Pháp đàm phán năm 1946, Người nói: “Sông có thể cạn, núi có thể mòn, song chân lý đó không bao giờ thay đổi.”'
@@ -173,6 +185,8 @@ const revolutionCards = [
     title: 'Muốn thắng lợi phải đi theo con đường cách mạng vô sản',
     content:
       'Hồ Chí Minh không chọn con đường cứu nước kiểu phong kiến hay tư sản, mà chọn con đường cách mạng vô sản.',
+    image: 'https://a.tcnnld.vn//Images/images/image-3-ho-chi-minh-at-tours-1920-public-domain.jpg',
+    imageAlt: 'Vladimir Lenin diễn thuyết trước quần chúng',
     evidence:
       'Sau khi tiếp cận Luận cương của Lênin, Người khẳng định: muốn cứu nước, giải phóng dân tộc không có con đường nào khác con đường cách mạng vô sản.',
     explanation:
@@ -183,6 +197,8 @@ const revolutionCards = [
     title: 'Cách mạng giải phóng dân tộc phải do Đảng Cộng sản lãnh đạo',
     content:
       'Theo Hồ Chí Minh, cách mạng muốn thành công phải có một đảng cách mạng đủ bản lĩnh, đủ đường lối, đủ khả năng tổ chức quần chúng.',
+    image: 'https://www.thuviendongnai.gov.vn/_layouts/LacVietBIO/fckUpload/2022-4/duong-cach-menh2842022_18361.jpg',
+    imageAlt: 'Ảnh tư liệu về vai trò lãnh đạo cách mạng',
     evidence: 'Trong Đường cách mệnh, Người nêu rõ: “Trước hết phải có đảng cách mệnh.”',
     explanation:
       'Đảng giữ vai trò giác ngộ quần chúng, tổ chức lực lượng, lãnh đạo cách mạng đi đúng hướng.'
@@ -381,7 +397,7 @@ function App() {
             “Muốn cứu nước và giải phóng dân tộc không có con đường nào khác con đường cách mạng vô sản.”
           </p>
           <div className="hero-actions">
-            <a href="#gioi-thieu" className="button-primary">
+            <a href="#phan-mot" className="button-primary">
               Khám phá nội dung
             </a>
             <a href="#phan-mot" className="button-secondary">
@@ -460,7 +476,7 @@ function App() {
 
                     {card.bullets ? (
                       <div className="criteria-block">
-                        <strong>Dẫn chứng khái quát</strong>
+                        <strong>Dẫn chứng</strong>
                         <ul>
                           {card.bullets.map((item) => (
                             <li key={item}>{item}</li>
@@ -476,7 +492,8 @@ function App() {
                     ) : (
                       <div className="concept-image-placeholder">
                         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="3" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
-                        <small>Thêm hình ảnh<br />dẫn chứng</small>
+                        <strong>{`Hình ${card.number}`}</strong>
+                        <small>{`https://mediagiaothong.tapchixaydung.vn/mediav2/upload/giaothong/tapchigiaothong.qltns.mediacdn.vn/tapchigiaothong.vn/files/Thuy.duong/2020/05/14/ban-yeu-sach-1436.jpg }`}</small>
                       </div>
                     )}
                   </div>
@@ -707,35 +724,53 @@ function App() {
             <h2>Tư tưởng Hồ Chí Minh về cách mạng giải phóng dân tộc</h2>
           </div>
 
-          <div className="revolution-grid stagger-up">
+          <div className="revolution-grid horizontal stagger-up">
             {[...revolutionCards, ...revolutionCardsMore].map((card) => (
-              <article key={card.number} className={`revolution-card reveal-child ${card.number === '05' ? 'featured' : ''}`}>
-                <span className="revolution-badge">{card.number}</span>
-                <h3>{card.title}</h3>
-                <p>{card.content}</p>
-                {card.evidence ? (
-                  <div className="evidence-block compact">
-                    <strong>Dẫn chứng</strong>
-                    <p>{card.evidence}</p>
+              <article key={card.number} className={`revolution-card reveal-child ${card.image ? 'has-image' : 'no-image'}`}>
+                <div className="revolution-card-layout">
+                  <div className="revolution-content">
+                    <div className="revolution-heading-row">
+                      <span className="revolution-badge">{card.number}</span>
+                      <h3>{card.title}</h3>
+                    </div>
+
+                    <div className="revolution-main">
+                      <p>{card.content}</p>
+                    </div>
+
+                    <div className="revolution-detail-grid">
+                      {card.evidence ? (
+                        <div className="evidence-block compact">
+                          <strong>Dẫn chứng</strong>
+                          <p>{card.evidence}</p>
+                        </div>
+                      ) : null}
+                      {card.explanation ? (
+                        <div className="explanation-block">
+                          <strong>Giải thích</strong>
+                          <p>{card.explanation}</p>
+                        </div>
+                      ) : null}
+                      {card.bullets ? (
+                        <div className="criteria-block">
+                          <strong>Làm rõ cách hiểu</strong>
+                          <ul>
+                            {card.bullets.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null}
+                      {card.closing ? <div className="closing-note">{card.closing}</div> : null}
+                    </div>
                   </div>
-                ) : null}
-                {card.explanation ? (
-                  <div className="explanation-block">
-                    <strong>Giải thích</strong>
-                    <p>{card.explanation}</p>
-                  </div>
-                ) : null}
-                {card.bullets ? (
-                  <div className="criteria-block">
-                    <strong>Làm rõ cách hiểu</strong>
-                    <ul>
-                      {card.bullets.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
-                {card.closing ? <div className="closing-note">{card.closing}</div> : null}
+
+                  {card.image ? (
+                    <div className="revolution-image-slot">
+                      <img src={card.image} alt={card.imageAlt || ''} loading="lazy" />
+                    </div>
+                  ) : null}
+                </div>
               </article>
             ))}
           </div>
@@ -772,6 +807,10 @@ function App() {
 
         </div>
       </section>
+
+      <footer className="site-footer">
+        <div className="container">© 2026 Tư Tưởng Hồ Chí Minh.</div>
+      </footer>
     </>
   );
 }

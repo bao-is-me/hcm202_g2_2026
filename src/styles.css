@@ -654,6 +654,12 @@ mark {
   color: rgba(125, 15, 46, 0.38);
 }
 
+.concept-image-placeholder strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--burgundy);
+}
+
 .concept-image-placeholder small {
   line-height: 1.6;
   font-size: 0.9rem;
@@ -1252,24 +1258,76 @@ mark {
 
 .revolution-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 18px;
   margin-top: 34px;
 }
 
+.revolution-grid.horizontal {
+  grid-template-columns: 1fr;
+  overflow: visible;
+  padding-bottom: 0;
+}
+
 .revolution-card {
-  min-height: 100%;
-  padding: 24px;
+  min-height: auto;
+  padding: 18px;
   border-radius: var(--radius-xl);
   background: rgba(255, 251, 245, 0.82);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
 
+.revolution-card-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) 250px;
+  gap: 22px;
+  align-items: start;
+}
+
+.revolution-card.no-image .revolution-card-layout {
+  grid-template-columns: 1fr;
+}
+
+.revolution-content {
+  display: grid;
+  gap: 16px;
+}
+
+.revolution-heading-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.revolution-main {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+}
+
+.revolution-detail-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: start;
+}
+
+.revolution-detail-grid > * {
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+
 .revolution-card.featured {
-  background: linear-gradient(180deg, rgba(125, 15, 46, 0.96), rgba(81, 9, 28, 0.98));
+  background:
+    linear-gradient(180deg, rgba(133, 20, 46, 0.9), rgba(108, 14, 39, 0.94)),
+    radial-gradient(circle at top left, rgba(200, 165, 94, 0.12), transparent 28%);
   color: var(--light);
-  border-color: rgba(255, 250, 242, 0.12);
+  border-color: rgba(255, 250, 242, 0.14);
   box-shadow: var(--shadow-deep);
 }
 
@@ -1295,15 +1353,45 @@ mark {
 }
 
 .revolution-card.featured .revolution-badge {
-  background: linear-gradient(145deg, rgba(255, 250, 242, 0.22), rgba(200, 165, 94, 0.18));
+  background: linear-gradient(145deg, rgba(255, 250, 242, 0.28), rgba(200, 165, 94, 0.2));
 }
 
 .revolution-card h3 {
-  margin: 16px 0 0;
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.16;
 }
 
-.revolution-card p {
-  margin: 14px 0 0;
+.revolution-main p {
+  margin: 0;
+  line-height: 1.82;
+  color: var(--ink-soft);
+}
+
+.revolution-image-slot {
+  min-height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1.5px dashed rgba(125, 15, 46, 0.24);
+  background:
+    radial-gradient(circle at top, rgba(200, 165, 94, 0.14), transparent 32%),
+    linear-gradient(180deg, rgba(255, 251, 245, 0.92), rgba(240, 230, 206, 0.82));
+  box-shadow: var(--shadow);
+}
+
+.revolution-image-slot img {
+  width: 100%;
+  height: 100%;
+  min-height: 232px;
+  object-fit: cover;
+  filter: grayscale(0.3) sepia(0.18) contrast(0.96);
+}
+
+.revolution-card.featured .revolution-image-slot {
+  border-color: rgba(255, 250, 242, 0.2);
+  background:
+    radial-gradient(circle at top, rgba(255, 250, 242, 0.1), transparent 32%),
+    linear-gradient(180deg, rgba(255, 250, 242, 0.06), rgba(255, 250, 242, 0.03));
 }
 
 .evidence-block.compact,
@@ -1325,8 +1413,33 @@ mark {
   color: #f0d7a1;
 }
 
+.revolution-card .closing-note,
+.revolution-card .criteria-block,
+.revolution-card .explanation-block,
+.revolution-card .evidence-block.compact {
+  margin-top: 0;
+  min-height: 100%;
+}
+
+.revolution-card .closing-note,
+.revolution-card .criteria-block,
+.revolution-card .explanation-block,
+.revolution-card .evidence-block.compact {
+  padding: 18px 18px 16px;
+  border-radius: 22px;
+}
+
 .section-conclusion {
   padding-bottom: 86px;
+}
+
+.site-footer {
+  padding: 22px 0 28px;
+  border-top: 1px solid var(--line);
+  background: var(--ivory);
+  color: var(--ink-soft);
+  text-align: center;
+  font-size: 0.98rem;
 }
 
 .conclusion-layout {
@@ -1537,6 +1650,19 @@ mark {
   .quote-gallery,
   .strength-grid {
     grid-template-columns: 1fr;
+  }
+
+  .revolution-grid.horizontal {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .revolution-card-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .revolution-heading-row {
+    grid-template-columns: 44px 1fr;
   }
 
   .doctrine-gallery {
