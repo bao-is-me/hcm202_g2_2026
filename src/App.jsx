@@ -228,13 +228,20 @@ const revolutionCardsMore = [
     title: 'Cách mạng giải phóng dân tộc phải dùng bạo lực cách mạng khi cần thiết',
     content:
       'Do thực dân, đế quốc dùng bạo lực để áp bức và thống trị, nên phải dùng bạo lực cách mạng để chống lại bạo lực phản cách mạng.',
+    imageA: 'https://file3.qdnd.vn/data/images/0/2025/08/26/upload_2083/2608thuy46.jpg',
+    imageAAlt: 'Khởi nghĩa vũ trang 1945',
+    imageALabel: 'Khởi nghĩa vũ trang 1945',
+    imageB: 'https://file.qdnd.vn/data/images/0/2020/05/06/nguyenthao/dien%20bien%20phu.jpg?dpi=150&quality=100&w=575',
+    imageBAlt: 'Kháng chiến chống Pháp, Mỹ',
+    imageBLabel: 'Kháng chiến chống Pháp, Mỹ',
     bullets: [
       'Không phải bạo lực mù quáng',
       'Là bạo lực của quần chúng',
       'Kết hợp đấu tranh chính trị với đấu tranh vũ trang',
       'Tùy hoàn cảnh mà vận dụng cho phù hợp'
     ],
-    evidence: 'Dẫn chứng: Khởi nghĩa vũ trang năm 1945; kháng chiến chống Pháp, chống Mỹ.',
+    closing:
+      'Bạo lực cách mạng trong tư tưởng Hồ Chí Minh luôn gắn với mục tiêu giải phóng dân tộc, có tổ chức, có định hướng và phù hợp với điều kiện lịch sử cụ thể.'
   }
 ];
 
@@ -765,7 +772,7 @@ function App() {
 
           <div className="revolution-grid horizontal stagger-up">
             {[...revolutionCards, ...revolutionCardsMore].map((card) => (
-              <article key={card.number} className={`revolution-card reveal-child ${card.image ? 'has-image' : 'no-image'}`}>
+              <article key={card.number} className={`revolution-card reveal-child ${card.image ? 'has-image' : 'no-image'} ${card.number === '05' ? 'double-image' : ''}`}>
                 <div className="revolution-card-layout">
                   <div className="revolution-content">
                     <div className="revolution-heading-row">
@@ -777,12 +784,12 @@ function App() {
                       <p>{card.content}</p>
                     </div>
 
-                    <div className="revolution-detail-grid">
-                      {card.evidence ? (
-                        <div className="evidence-block compact">
-                          <strong>Dẫn chứng</strong>
-                          <p>{card.evidence}</p>
-                        </div>
+                      <div className={`revolution-detail-grid ${card.number === '05' ? 'double-image-detail-grid' : ''}`}>
+                        {card.evidence ? (
+                          <div className="evidence-block compact">
+                            <strong>Dẫn chứng</strong>
+                            <p>{card.evidence}</p>
+                          </div>
                       ) : null}
                       {card.explanation ? (
                         <div className="explanation-block">
@@ -804,7 +811,22 @@ function App() {
                     </div>
                   </div>
 
-                  {card.image ? (
+                  {card.number === '05' ? (
+                    <div className="revolution-image-column">
+                      <article className="revolution-image-card">
+                        <div className="revolution-image-slot">
+                          <img src={card.imageA} alt={card.imageAAlt || ''} loading="lazy" />
+                        </div>
+                        <small>{card.imageALabel}</small>
+                      </article>
+                      <article className="revolution-image-card">
+                        <div className="revolution-image-slot">
+                          <img src={card.imageB} alt={card.imageBAlt || ''} loading="lazy" />
+                        </div>
+                        <small>{card.imageBLabel}</small>
+                      </article>
+                    </div>
+                  ) : card.image ? (
                     <div className="revolution-image-slot">
                       <img src={card.image} alt={card.imageAlt || ''} loading="lazy" />
                     </div>
