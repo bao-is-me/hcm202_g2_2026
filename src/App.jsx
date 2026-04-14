@@ -473,7 +473,7 @@ function App() {
           <div className="hero-course-meta">
             <span className="hero-course-code">HCM202</span>
             <span className="hero-course-divider"></span>
-            <span className="hero-course-lecturer">Giảng viên: Trần Duy Lâm</span>
+            <span className="hero-course-lecturer">Giảng viên: thầy Trần Duy Lâm</span>
           </div>
         </div>
       </section>
