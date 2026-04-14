@@ -322,6 +322,29 @@ const keywordTags = [
   'bạo lực cách mạng'
 ];
 
+const aiTransparencyItems = [
+  {
+    title: 'Minh bạch',
+    text:
+      'Nhóm sử dụng Gemini và ChatGPT để hỗ trợ nội dung, dùng ChatGPT để hỗ trợ code và tinh chỉnh giao diện web.'
+  },
+  {
+    title: 'Kiểm chứng',
+    text:
+      'Mọi nội dung đều được đối chiếu với Giáo trình HCM202 và tài liệu học phần.'
+  },
+  {
+    title: 'Sáng tạo',
+    text:
+      'AI hỗ trợ nâng cao tính trực quan, thẩm mỹ và hiệu quả trình bày, nhưng ý tưởng triển khai do nhóm quyết định.'
+  },
+  {
+    title: 'Liêm chính học thuật',
+    text:
+      'AI chỉ là công cụ hỗ trợ; sản phẩm cuối cùng là kết quả chọn lọc, chỉnh sửa và chịu trách nhiệm của sinh viên.'
+  }
+];
+
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -446,9 +469,11 @@ function App() {
             <a href="#phan-mot" className="button-primary">
               Khám phá nội dung
             </a>
-            <a href="#phan-mot" className="button-secondary">
-              Xem phần I
-            </a>
+          </div>
+          <div className="hero-course-meta">
+            <span className="hero-course-code">HCM202</span>
+            <span className="hero-course-divider"></span>
+            <span className="hero-course-lecturer">Giảng viên: Trần Duy Lâm</span>
           </div>
         </div>
       </section>
@@ -784,12 +809,12 @@ function App() {
                       <p>{card.content}</p>
                     </div>
 
-                      <div className={`revolution-detail-grid ${card.number === '05' ? 'double-image-detail-grid' : ''}`}>
-                        {card.evidence ? (
-                          <div className="evidence-block compact">
-                            <strong>Dẫn chứng</strong>
-                            <p>{card.evidence}</p>
-                          </div>
+                    <div className={`revolution-detail-grid ${card.number === '05' ? 'double-image-detail-grid' : ''}`}>
+                      {card.evidence ? (
+                        <div className="evidence-block compact">
+                          <strong>Dẫn chứng</strong>
+                          <p>{card.evidence}</p>
+                        </div>
                       ) : null}
                       {card.explanation ? (
                         <div className="explanation-block">
@@ -902,9 +927,30 @@ function App() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <div className="container">© 2026 Tư Tưởng Hồ Chí Minh.</div>
-      </footer>
+      <section className="section section-ai-transparency section-light" id="minh-bach-ai">
+        <div className="container">
+          <div className="section-heading reveal">
+            <span className="section-label">Minh bạch sử dụng AI</span>
+            <h2>Ứng dụng AI có trách nhiệm</h2>
+          </div>
+
+          <div className="ai-transparency-grid stagger-up">
+            {aiTransparencyItems.map((item, index) => (
+              <article key={item.title} className="ai-transparency-card reveal-child">
+                <div className="ai-transparency-head">
+                  <span className="ai-transparency-badge">{`0${index + 1}`}</span>
+                  <h3>{item.title}</h3>
+                </div>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+        <footer className="site-footer">
+          <div className="site-footer-inner">© 2026 Tư Tưởng Hồ Chí Minh.</div>
+        </footer>
     </>
   );
 }
