@@ -185,7 +185,7 @@ const revolutionCards = [
     title: 'Muốn thắng lợi phải đi theo con đường cách mạng vô sản',
     content:
       'Hồ Chí Minh không chọn con đường cứu nước kiểu phong kiến hay tư sản, mà chọn con đường cách mạng vô sản.',
-    image: 'https://a.tcnnld.vn//Images/images/image-3-ho-chi-minh-at-tours-1920-public-domain.jpg',
+    image: 'https://ordi.vn/wp-content/uploads/2023/05/HCM01.jpg',
     imageAlt: 'Vladimir Lenin diễn thuyết trước quần chúng',
     evidence:
       'Sau khi tiếp cận Luận cương của Lênin, Người khẳng định: muốn cứu nước, giải phóng dân tộc không có con đường nào khác con đường cách mạng vô sản.',
@@ -948,9 +948,9 @@ function App() {
         </div>
       </section>
 
-        <footer className="site-footer">
-          <div className="site-footer-inner">© 2026 Tư Tưởng Hồ Chí Minh.</div>
-        </footer>
+      <footer className="site-footer">
+        <div className="site-footer-inner">© 2026 Tư Tưởng Hồ Chí Minh.</div>
+      </footer>
     </>
   );
 }
